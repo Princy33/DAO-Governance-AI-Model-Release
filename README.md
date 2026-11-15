@@ -1,374 +1,571 @@
-# DAO Governance for AI Model Release
+# 🚀 DAO Governance for AI Model Release
 
-## Project Overview
+<h3 align="center">🔗 Decentralized Governance | 🤖 Artificial Intelligence | 🔐 Blockchain Security</h3>
 
-This project implements a decentralized governance system for approving AI model releases using blockchain-based voting.
-
-The system combines an off-chain AI anomaly detection component with an on-chain DAO governance smart contract. The AI computation is performed off-chain, while the blockchain stores the model version, SHA-256 manifest digest, proposal information, voting results, and governance outcome.
-
-The project demonstrates how a DAO can be used to control the approval of AI model releases through transparent and auditable voting.
-
----
-
-## Problem Statement
-
-AI model releases require a controlled approval process to ensure that a model satisfies predefined quality, risk, and governance requirements.
-
-A centralized approval process may make it difficult to provide transparent voting records and verifiable governance decisions.
-
-This project addresses the problem by creating a DAO-based governance mechanism where registered members can vote on AI model release proposals.
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.x-blue?logo=python" />
+  <img src="https://img.shields.io/badge/Solidity-0.8.24-black?logo=solidity" />
+  <img src="https://img.shields.io/badge/AI-Isolation%20Forest-green" />
+  <img src="https://img.shields.io/badge/Blockchain-Remix%20VM-orange" />
+  <img src="https://img.shields.io/badge/Status-Completed-success" />
+</p>
 
 ---
 
-## Objectives
+## 🌟 Project Overview
 
-The main objectives of the project are:
+**DAO Governance for AI Model Release** is a blockchain-based decentralized governance framework designed to manage and approve AI model releases through transparent and auditable voting.
 
-1. Develop an AI-based anomaly detection component.
-2. Generate a reproducible synthetic evaluation dataset.
-3. Detect anomalous records using Isolation Forest.
-4. Generate AI model manifests containing governance metadata.
-5. Generate SHA-256 digests for model manifests.
-6. Store the model version and manifest digest on the blockchain.
-7. Implement registered-member voting.
-8. Enforce one-member-one-vote.
-9. Enforce a minimum quorum.
-10. Handle successful, failed, duplicate, and invalid voting scenarios.
-11. Provide a transparent proposal lifecycle.
-12. Maintain historical governance outcomes on-chain.
+The project combines an **off-chain AI anomaly detection pipeline** with an **on-chain DAO governance smart contract**.
 
----
+🤖 The AI component performs synthetic data generation, preprocessing, anomaly detection, evaluation, and model manifest generation.
 
-## Technologies Used
+🔗 The blockchain component manages model release proposals, registered-member voting, quorum validation, and governance decisions.
 
-### AI / Machine Learning
+🔐 SHA-256 manifest digests provide a cryptographic reference to the AI model metadata stored off-chain.
 
-- Python
-- NumPy
-- Pandas
-- Scikit-learn
-- Isolation Forest
-- StandardScaler
+The project demonstrates how Artificial Intelligence and Blockchain can work together to establish a transparent and accountable AI model release approval process.
 
-### Blockchain
+## 🎯 Project Objectives
 
-- Solidity
-- Remix IDE
-- Remix VM (Cancun)
-- Ethereum-compatible local execution environment
-- SHA-256 manifest digest
-
-### Development
-
-- Visual Studio Code
-- Python Virtual Environment
+- 🤖 Develop an AI-based anomaly detection pipeline.
+- 📊 Generate reproducible synthetic evaluation data.
+- 🔍 Detect anomalous records using Isolation Forest.
+- 📄 Generate AI model manifests.
+- 🔐 Generate SHA-256 cryptographic digests.
+- ⛓️ Store model versions and manifest digests on-chain.
+- 🗳️ Implement registered-member voting.
+- 👥 Enforce one-member-one-vote.
+- ⚖️ Implement quorum and majority validation.
+- 🚫 Prevent duplicate proposals and voting.
+- 📋 Maintain transparent proposal lifecycle records.
 
 ---
 
-## Project Structure
+## 🏗️ System Architecture
+
+The system follows a hybrid architecture consisting of two major components.
+
+### 🤖 1. Off-Chain AI Pipeline
+
+```text
+       📊 Synthetic Dataset
+                |
+                v
+       ⚙️ Data Preprocessing
+                |
+                v
+        StandardScaler
+                |
+                v
+       🌲 Isolation Forest
+                |
+                v
+       🔍 Anomaly Detection
+                |
+                v
+       📈 Evaluation Results
+                |
+                v
+        📄 Model Manifest
+                |
+                v
+        🔐 SHA-256 Digest
+```
+
+### 🔗 2. On-Chain DAO Governance
+
+```text
+    📄 Model Version + Manifest Hash
+                    |
+                    v
+            📝 Create Proposal
+                    |
+                    v
+              🗳️ Member Voting
+                    |
+                    v
+              ⚖️ Quorum Check
+                    |
+                    v
+             Majority Validation
+                    |
+           +--------+--------+
+           |                 |
+           v                 v
+      ✅ Succeeded       ❌ Defeated
+           |
+           v
+        📥 Queue
+           |
+           v
+       🚀 Execute
+```
+
+### 🔄 Overall Workflow
+
+1. Generate synthetic AI evaluation data.
+2. Detect anomalies using the AI pipeline.
+3. Generate model evaluation results.
+4. Create model manifests.
+5. Generate SHA-256 manifest digests.
+6. Submit model version and digest as a DAO proposal.
+7. Allow registered members to vote.
+8. Validate quorum and majority conditions.
+9. Finalize, queue, and execute successful proposals.
+
+---
+
+## 🛠️ Technologies Used
+
+| Category | Technologies |
+|---|---|
+| 💻 Programming | Python |
+| 📊 Data Processing | NumPy, Pandas |
+| 🤖 Machine Learning | Scikit-learn |
+| 🔍 Anomaly Detection | Isolation Forest |
+| ⚙️ Preprocessing | StandardScaler |
+| ⛓️ Blockchain | Remix VM (Cancun) |
+| 📜 Smart Contract | Solidity |
+| 🔐 Cryptography | SHA-256 |
+| 🧰 Development | Visual Studio Code, Remix IDE |
+| 🌐 Version Control | Git, GitHub |
+
+---
+
+## 📂 Project Structure
 
 ```text
 DAO_Governance_AI_Model_Release/
 │
-├── ai/
-│   ├── data/
+├── 🤖 ai/
+│   ├── 📁 data/
 │   │   ├── anomaly_detection_results.csv
 │   │   └── model_evaluation_data.csv
+│   │
 │   ├── anomaly_detection.py
 │   ├── create_manifests.py
 │   └── generate_data.py
 │
-├── contracts/
+├── ⛓️ contracts/
 │   └── DAOGovernance.sol
 │
-├── manifests/
+├── 🔐 manifests/
 │   ├── hashes.txt
 │   ├── manifest_v2.json
 │   └── manifest_v3.json
 │
-├── screenshots/
-│   └── Remix testing screenshots
+├── 📸 screenshots/
+│   └── Remix deployment and testing evidence
 │
-├── venv/
-│
-├── README.md
-└── requirements.txt
+├── 🖥️ app.py
+├── 📦 requirements.txt
+├── 🚫 .gitignore
+└── 📖 README.md
+```
 
 ---
 
-# System Architecture
+## 🤖 AI-Based Anomaly Detection
 
-The project consists of two main components:
+The AI component uses a synthetic dataset to demonstrate anomaly detection in AI evaluation records.
 
-### 1. Off-Chain AI Component
+### 📊 Dataset Configuration
 
-The AI component performs anomaly detection and model evaluation outside the blockchain.
+| Parameter | Value |
+|---|---:|
+| Total Records | 200 |
+| Injected Anomalies | 5 |
+| Algorithm | Isolation Forest |
+| Estimators | 200 |
+| Contamination | 2.5% |
+| Random State | 42 |
+| Preprocessing | StandardScaler |
+
+### 📈 Experimental Results
+
+| Evaluation Metric | Result |
+|---|---:|
+| Accuracy | 1.0000 |
+| Precision | 1.0000 |
+| Recall | 1.0000 |
+| F1 Score | 1.0000 |
+| Injected Anomalies | 5 |
+| Detected Anomalies | 5 |
+
+<details>
+<summary>🔍 View AI Pipeline Details</summary>
+
+- Generate 200 synthetic evaluation records.
+- Inject five intentional anomalies.
+- Standardize numerical features.
+- Apply Isolation Forest.
+- Predict normal and anomalous records.
+- Compare predictions against known synthetic labels.
+- Generate evaluation results.
+
+</details>
+
+⚠️ **AI Limitation:** The dataset contains intentionally injected synthetic anomalies. The perfect experimental results demonstrate the pipeline's behaviour and do not establish perfect real-world anomaly detection.
+
+---
+
+## 🔐 Model Manifest & SHA-256 Verification
+
+The project generates JSON manifests containing model-related governance metadata.
+
+### 📄 Generated Manifests
+
+- `manifest_v2.json`
+- `manifest_v3.json`
+
+Their SHA-256 digests are stored in `manifests/hashes.txt`.
+
+### 🔑 Manifest Hashes
+
+| Manifest | SHA-256 Digest |
+|---|---|
+| Version 2 | `98b687886a77f68e3dca2770839344087b7d4847cbfb31176517cf61d53c11bd` |
+| Version 3 | `bb8f51225c948c837c5e9bc1087cbc131b121a177b2af3c1889849c990cbccbf` |
+
+🔐 **Purpose:** The SHA-256 digest provides a cryptographic commitment to the referenced manifest contents and helps identify changes.
+
+⚠️ A matching digest does not independently prove the correctness or truthfulness of the underlying AI evaluation information.
+
+---
+
+## ⛓️ DAO Governance Smart Contract
+
+The governance mechanism is implemented using Solidity.
+
+📁 **Contract Location:** `contracts/DAOGovernance.sol`
+
+**Solidity Version:** `^0.8.24`
+
+### ⚖️ Governance Rules
+
+| Governance Rule | Description |
+|---|---|
+| 👥 Member Registration | Only registered members can vote. |
+| 🗳️ Voting Restriction | One vote per member per proposal. |
+| 📊 Quorum | Minimum 3 votes required. |
+| ✅ Majority | YES votes must exceed NO votes. |
+| ⚖️ Tie Handling | A tie results in a defeated proposal. |
+| ⏳ Voting Period | Voting must close before finalization. |
+| 📥 Proposal Queue | Successful proposals must be queued. |
+| 🚀 Execution | Queued successful proposals can be executed. |
+| 🚫 Duplicate Prevention | Duplicate model version and digest combinations are rejected. |
+| 🛡️ Emergency Control | Emergency pause mechanism is provided. |
+
+### ⚙️ Smart Contract Functions
+
+**👥 Member Management**
+- `registerMember()`
+- `removeMember()`
+
+**📝 Proposal Management**
+- `createProposal()`
+- `finalizeProposal()`
+- `queueProposal()`
+- `executeProposal()`
+- `cancelProposal()`
+
+**🗳️ Voting**
+- `vote()`
+
+**🛡️ Emergency Control**
+- `setEmergencyPause()`
+
+**📋 Information Functions**
+- `getProposal()`
+- `getProposalCount()`
+- `getTotalVotes()`
+- `quorumReached()`
+
+---
+
+## 🔄 Proposal Lifecycle
+
+The smart contract supports seven proposal states:
+
+| State | Description |
+|---|---|
+| ⏳ Pending | Proposal awaiting activation |
+| 🟢 Active | Voting is in progress |
+| ✅ Succeeded | Quorum and majority conditions satisfied |
+| ❌ Defeated | Proposal failed governance requirements |
+| 📥 Queued | Successful proposal added to execution queue |
+| 🚀 Executed | Proposal execution completed |
+| 🚫 Cancelled | Proposal cancelled |
+
+### ✅ Successful Proposal
 
 ```text
-Synthetic Data
-      ↓
-Preprocessing
-      ↓
-StandardScaler
-      ↓
-Isolation Forest
-      ↓
-Anomaly Detection
-      ↓
-Evaluation Results
-      ↓
-Model Manifest
-      ↓
-SHA-256 Digest
-
-### 2. On-Chain DAO Governance
-
-Model Version + Manifest Digest
-              ↓
-        Create Proposal
-              ↓
-          Member Voting
-              ↓
-        Quorum Check
-              ↓
-       Majority Check
-              ↓
-     Succeeded / Defeated
-              ↓
-            Queue
-              ↓
-           Execute
-
-
-
-AI Component
-
-The project uses a synthetic dataset for demonstrating AI-based anomaly detection.
-
-A total of 200 records were generated, including 5 intentionally injected anomalies.
-
-The preprocessing stage uses StandardScaler to standardize numerical features.
-
-The anomaly detection algorithm used is Isolation Forest with:
-
-Number of estimators: 200
-Contamination: 2.5%
-Random state: 42
-
-The experiment detected all 5 injected anomalies.
-
-Evaluation Results
-Metric	Result
-Accuracy	1.0000
-Precision	1.0000
-Recall	1.0000
-F1 Score	1.0000
-Injected anomalies	5
-Detected anomalies	5
-AI Limitation
-
-The dataset is synthetic and the anomalies were intentionally injected. Therefore, the perfect evaluation results demonstrate the behaviour of the experimental pipeline and should not be interpreted as evidence of perfect real-world anomaly detection.
-
-Model Manifest and SHA-256
-
-The project contains two model manifests:
-
-manifest_v2.json
-manifest_v3.json
-
-The corresponding SHA-256 digests are stored in:
+🟢 Active
+    |
+    v
+✅ Succeeded
+    |
+    v
+📥 Queued
+    |
+    v
+🚀 Executed
+```
 
-manifests/hashes.txt
-Manifest v2
-98b687886a77f68e3dca2770839344087b7d4847cbfb31176517cf61d53c11bd
-Manifest v3
-bb8f51225c948c837c5e9bc1087cbc131b121a177b2af3c1889849c990cbccbf
+### ❌ Failed Proposal
+
+```text
+🟢 Active
+    |
+    v
+❌ Defeated
+```
 
-The digest is used as a cryptographic commitment to the manifest contents. It does not independently prove that the underlying off-chain AI information is correct or truthful.
+---
 
-DAO Governance Rules
+## 🚀 Blockchain Deployment
 
-The DAO uses the following governance rules:
+The smart contract was compiled and deployed using **Remix IDE**.
 
-Only registered members can vote.
-Each registered member can vote once per proposal.
-Quorum is 3 votes.
-A proposal succeeds only when YES votes are greater than NO votes.
-A tie results in a defeated proposal.
-Voting must close before finalization.
-A successful proposal must be queued before execution.
-Duplicate proposals using the same model version and manifest digest are rejected.
-The administrator can register and remove members.
-The administrator can cancel proposals.
-An emergency pause mechanism is provided.
-Proposal Lifecycle
+| Configuration | Details |
+|---|---|
+| IDE | Remix IDE |
+| Virtual Machine | Remix VM (Cancun) |
+| Language | Solidity |
+| Compiler | Solidity ^0.8.24 |
+| Execution | Local Blockchain Environment |
+| Real Ether | Not Required |
 
-The smart contract uses the following proposal states:
+🔗 The deployment and testing process was performed in a local Remix VM environment.
 
-Pending
-Active
-Succeeded
-Defeated
-Queued
-Executed
-Cancelled
+---
 
-The normal successful lifecycle is:
+## 🧪 Testing & Experimental Validation
 
-Active
-   ↓
-Succeeded
-   ↓
-Queued
-   ↓
-Executed
+The project includes successful governance scenarios and negative test cases.
 
-If quorum is not reached or YES votes do not exceed NO votes:
+### 🟢 1. Successful Proposal
 
-Active
-   ↓
-Defeated
-Smart Contract
+Proposal 1 was created using model version `2.0` and the v2 manifest digest.
 
-The Solidity smart contract is located at:
+| Parameter | Result |
+|---|---:|
+| Proposal ID | 1 |
+| Model Version | 2.0 |
+| YES Votes | 4 |
+| NO Votes | 1 |
+| Total Votes | 5 |
+| Required Quorum | 3 |
+| Final Status | Executed |
 
-contracts/DAOGovernance.sol
+**Observed Lifecycle:**
 
-The contract is written using Solidity ^0.8.24.
+`✅ Succeeded → 📥 Queued → 🚀 Executed`
 
-Important functions include:
+### 🔴 2. Quorum Failure
 
-Member Management
-registerMember()
-removeMember()
-Proposal Management
-createProposal()
-finalizeProposal()
-queueProposal()
-executeProposal()
-cancelProposal()
-Voting
-vote()
-Emergency Control
-setEmergencyPause()
-Information Functions
-getProposal()
-getProposalCount()
-getTotalVotes()
-quorumReached()
-Blockchain Deployment
+Proposal 3 recorded the following voting results:
 
-The smart contract was compiled and deployed using Remix IDE.
+| Parameter | Result |
+|---|---:|
+| YES Votes | 2 |
+| NO Votes | 0 |
+| Total Votes | 2 |
+| Required Quorum | 3 |
+| Final Status | Defeated |
 
-The project uses:
+❌ The proposal was defeated because the total votes did not meet the minimum quorum requirement.
 
-Remix VM (Cancun)
+### 🛡️ 3. Negative Test Cases
 
-The demonstration does not use real Ether.
+| Test Scenario | Expected Behaviour | Result |
+|---|---|---|
+| Duplicate Vote | Reject repeated voting | ✅ Passed |
+| Unregistered Voter | Reject unauthorized voting | ✅ Passed |
+| Early Finalization | Prevent premature finalization | ✅ Passed |
+| Late Voting | Reject voting after deadline | ✅ Passed |
+| Already Finalized Proposal | Prevent repeated finalization | ✅ Passed |
+| Duplicate Proposal | Reject duplicate model version and digest | Tested |
 
-The deployment and testing evidence is available in the screenshots folder.
+### ⚠️ Error Messages Verified
 
-Testing
+| Scenario | Contract Response |
+|---|---|
+| Duplicate Vote | `Member has already voted` |
+| Unregistered Voter | `Only registered members can vote` |
+| Early Finalization | `Voting is still active` |
+| Late Voting | `Voting has ended` |
 
-The project includes successful and negative test cases.
+---
 
-Successful Proposal
+## 📸 Screenshots & Demonstration Evidence
 
-Proposal 1 was created using model version 2.0 and the v2 manifest digest.
+The `screenshots/` directory contains the project's deployment and testing evidence.
 
-The recorded voting result was:
+The screenshots demonstrate:
 
-YES = 4
-NO  = 1
-Total Votes = 5
+- ✅ Successful smart contract compilation.
+- ⛓️ DAO smart contract deployment.
+- 👥 Member count verification.
+- ⏱️ Voting duration configuration.
+- 📋 Proposal information retrieval.
+- 🗳️ Active and completed voting.
+- 🚫 Duplicate voting prevention.
+- 🔒 Unregistered voter rejection.
+- ⚖️ Proposal finalization and quorum behaviour.
 
-The quorum requirement was 3 votes.
+---
 
-The proposal therefore reached quorum and satisfied the YES > NO rule.
+## 🔒 Security & Privacy Considerations
 
-Its lifecycle was:
+The project separates AI computation from blockchain governance.
 
-Succeeded → Queued → Executed
-Quorum Failure
+**Security Features**
 
-Proposal 3 recorded:
+- 🔐 SHA-256 manifest integrity checking.
+- 👥 Registered-member voting restrictions.
+- 🗳️ One-member-one-vote enforcement.
+- ⚖️ Quorum and majority validation.
+- 🚫 Duplicate proposal prevention.
+- 🛡️ Emergency pause functionality.
 
-YES = 2
-NO  = 0
-Total Votes = 2
+**Potential Risks**
 
-Since the total number of votes was below the quorum requirement of 3, the proposal was defeated.
+- Compromise of a registered member account.
+- Collusion between members.
+- Vote buying or external influence.
+- Incorrect off-chain AI evaluation.
+- Dependence on the administrator for membership management.
 
-Negative Test Cases
+⚠️ The manifest digest provides integrity checking, not independent authentication of AI claims. The demonstration does not eliminate all governance or blockchain security risks.
 
-The following invalid operations were tested:
+---
 
-Duplicate Vote
+## ⚠️ Project Limitations
 
-A member attempted to vote twice on the same proposal.
+- Synthetic AI evaluation dataset.
+- Intentionally injected anomalies.
+- Five local DAO members in the demonstration.
+- AI computation performed off-chain.
+- No complete protection against collusion or vote buying.
+- Actual AI model deployment is outside the Solidity contract.
+- Membership should remain fixed during an active demonstration ballot.
 
-The transaction was rejected with:
+---
 
-Member has already voted
-Unregistered Voter
+## 💻 Installation & Execution
 
-An account that was not registered as a DAO member attempted to vote.
+### 📌 Prerequisites
 
-The transaction was rejected with:
+- Python 3.x
+- Git
+- Remix IDE
 
-Only registered members can vote
-Early Finalization
+### 1️⃣ Clone Repository
 
-An attempt was made to finalize a proposal while voting was active.
+```bash
+git clone https://github.com/Princy33/DAO-Governance-AI-Model-Release.git
+```
 
-The transaction was rejected with:
+### 2️⃣ Navigate to Project
 
-Voting is still active
-Late Voting
+```bash
+cd DAO-Governance-AI-Model-Release
+```
 
-An attempt was made to vote after the voting period ended.
+### 3️⃣ Create Virtual Environment
 
-The transaction was rejected with:
+**Windows:**
 
-Voting has ended
-Already Finalized Proposal
+```bash
+python -m venv venv
+venv\Scripts\activate
+```
 
-An already finalized proposal cannot be finalized again.
+### 4️⃣ Install Dependencies
 
-Security and Privacy
+```bash
+pip install -r requirements.txt
+```
 
-The project does not store passwords, private keys, or sensitive personal records in the source code.
+### 5️⃣ Generate Synthetic Dataset
 
-The AI computation is performed off-chain.
+```bash
+python ai/generate_data.py
+```
 
-The blockchain stores governance information such as the model version, manifest digest, proposal state, and voting results.
+### 6️⃣ Run Anomaly Detection
 
-Potential risks include:
+```bash
+python ai/anomaly_detection.py
+```
 
-Compromise of a registered member account.
-Collusion between members.
-Vote buying.
-Incorrect or misleading off-chain AI evaluation.
-Dependence on the administrator for member registration.
+### 7️⃣ Generate Model Manifests
 
-The manifest digest provides integrity checking for the referenced manifest but does not independently authenticate the underlying AI claims.
+```bash
+python ai/create_manifests.py
+```
 
-Limitations
-The AI dataset is synthetic.
-The anomaly detection experiment uses intentionally injected anomalies.
-The DAO is demonstrated with five local members.
-AI computation is performed off-chain.
-The smart contract does not completely prevent collusion or vote buying.
-Actual AI model deployment is outside the Solidity contract.
-Membership should remain fixed during an active demonstration ballot.
-Conclusion
+### 8️⃣ Launch Application
 
-This project demonstrates a DAO-based governance mechanism for AI model release decisions.
+```bash
+streamlit run app.py
+```
 
-It combines an off-chain AI anomaly detection pipeline with an on-chain Solidity governance contract.
+### 9️⃣ Deploy Smart Contract
 
-The system demonstrates model-manifest hashing, registered-member voting, quorum enforcement, majority-based proposal approval, duplicate-vote prevention, invalid-voter rejection, proposal finalization, queuing, and execution.
+1. Open Remix IDE.
+2. Load `contracts/DAOGovernance.sol`.
+3. Select Solidity compiler version `0.8.24` or compatible.
+4. Compile the contract.
+5. Select Remix VM (Cancun).
+6. Deploy the contract.
+7. Register DAO members.
+8. Create proposals and test voting.
+9. Finalize, queue, and execute successful proposals.
 
-The project provides a local and reproducible demonstration of blockchain-based governance for AI model release decisions.
+📌 Run the Python scripts in the listed order when regenerating outputs. Deploy and test the smart contract separately in Remix IDE.
 
+---
 
+## 🔮 Future Enhancements
+
+- 🌐 Integration with real-world AI evaluation datasets.
+- 🤖 Advanced anomaly detection algorithms.
+- 🔐 Decentralized identity and membership verification.
+- 📦 IPFS-based decentralized manifest storage.
+- ⚙️ Automated manifest verification.
+- 👥 Role-based governance.
+- ⛓️ Public blockchain testnet deployment.
+- 🛡️ Automated smart contract security testing.
+- 📊 Advanced AI governance analytics dashboard.
+
+---
+
+## 🏆 Conclusion
+
+DAO Governance for AI Model Release demonstrates how decentralized governance can be applied to AI model release approval.
+
+By combining off-chain AI anomaly detection, model manifest generation, SHA-256 integrity checking, and on-chain DAO voting, the project provides a practical demonstration of transparent and auditable governance.
+
+The implementation covers registered-member voting, quorum enforcement, majority-based approval, duplicate-vote prevention, invalid-voter rejection, proposal finalization, queuing, and execution.
+
+The project provides a foundation for exploring the integration of **Artificial Intelligence, Blockchain Technology, and Decentralized Decision-Making**.
+
+---
+
+## 👨‍💻 Author
+
+**Princy Mishra**
+
+🔗 **GitHub:** [@Princy33](https://github.com/Princy33)
+
+📂 **Project Repository:** [DAO Governance for AI Model Release](https://github.com/Princy33/DAO-Governance-AI-Model-Release)
+
+---
+
+<p align="center">
+  <h3 align="center">🚀 AI + 🔗 Blockchain + 🗳️ Decentralized Governance</h3>
+  <p align="center">Building transparent and accountable AI release workflows.</p>
+</p>
