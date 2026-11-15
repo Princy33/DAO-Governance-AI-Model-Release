@@ -1,0 +1,58 @@
+{
+    "manifest_format": "DAO-AI-Release-Manifest-v1",
+    "model_name": "SyntheticAIClassifier",
+    "model_version": "3.0",
+    "model_identifier": "synthetic-ai-classifier-v3",
+    "evaluation": {
+        "dataset_type": "synthetic",
+        "total_records": 200,
+        "actual_anomalies": 5,
+        "detected_anomalies": 5,
+        "normal_records": 195,
+        "accuracy": 1.0,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "true_positive": 5,
+        "true_negative": 195,
+        "false_positive": 0,
+        "false_negative": 0
+    },
+    "ai_method": {
+        "algorithm": "Isolation Forest",
+        "n_estimators": 200,
+        "contamination": 0.025,
+        "random_seed": 42,
+        "preprocessing": [
+            "Numerical feature selection",
+            "StandardScaler normalization"
+        ],
+        "features": [
+            "accuracy",
+            "precision",
+            "recall",
+            "f1_score",
+            "latency_ms",
+            "fairness_gap",
+            "risk_score"
+        ]
+    },
+    "risk_assessment": {
+        "risk_level": "MEDIUM",
+        "risk_score": 0.28,
+        "fairness_gap": 0.08,
+        "security_review": "completed",
+        "privacy_review": "completed"
+    },
+    "release_policy": {
+        "minimum_f1_score": 0.8,
+        "maximum_fairness_gap": 0.1,
+        "anomaly_review_required": true
+    },
+    "review": {
+        "reviewer_role": "AI Safety Reviewer",
+        "review_status": "READY_FOR_DAO_VOTE"
+    },
+    "release_note": "Model v3.0 is submitted as a second governance proposal for demonstrating an insufficient-quorum outcome.",
+    "limitation": "Evaluation uses synthetic data with intentionally injected anomalies. Results should not be interpreted as proof of real-world model performance."
+}

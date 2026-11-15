@@ -1,0 +1,10 @@
+DAO Governance for AI Model Release
+Manifest SHA-256 Digests
+============================================================
+
+manifest_v2.json
+98b687886a77f68e3dca2770839344087b7d4847cbfb31176517cf61d53c11bd
+
+manifest_v3.json
+bb8f51225c948c837c5e9bc1087cbc131b121a177b2af3c1889849c990cbccbf
+
